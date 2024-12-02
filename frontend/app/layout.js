@@ -2,6 +2,12 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import LotteryInfo from "./components/LotteryInfo";
+import ConnectWallet from "./components/ConnectWallet";
+import ActionButtons from "./components/ActionButtons"; 
+import CurrentPlayers from "./components/CurrentPlayers";
+import PreviousWinners from "./components/PreviousWinners";
+import LotteryPotCard from "./components/LotteryPotCard";
 import { createThirdwebClient } from "thirdweb";
 import { ThirdwebProvider } from "thirdweb/react";
 require('dotenv').config()
@@ -26,20 +32,15 @@ const client = createThirdwebClient({ clientId: '5aaa21e877f5f6045408ccd638dace6
 
 
 export default function RootLayout({ children }) {
-
-
-
   return (
-    
     <html lang="en">
       <ThirdwebProvider>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white min-h-screen`}
-      >
-        <Header/>
-        <main>{children}</main>
-        <Footer/>
-      </body>
+        <body className="bg-custom min-h-screen">
+          <Header />
+          <div className="max-w-6xl mx-auto px-4 py-8">
+            {children}
+          </div>
+        </body>
       </ThirdwebProvider>
     </html>
   );
